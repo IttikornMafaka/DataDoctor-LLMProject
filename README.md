@@ -1,66 +1,207 @@
-🩺 Data Doctor — AI Data Quality & Cleaning Assistant
+<div align="center">
 
-Data Doctor is an AI-powered data quality and data cleaning application designed to help users understand, validate, and improve the quality of tabular datasets.
+🩺 Data Doctor
 
-Users can upload CSV or Excel files, inspect dataset statistics, detect data-quality issues, receive LLM-powered analysis and recommendations, apply controlled cleaning operations, correct data types, and download the cleaned dataset.
+AI-Powered Data Quality & Cleaning Assistant
 
-The project combines Data Engineering, Data Quality, Rule-Based Validation, LLM Engineering, and an Interactive Gradio UI into one practical application.
+<p>
+  <strong>Upload → Analyze → Understand → Clean → Review</strong>
+</p>
 
-✨ Features
+<p>
+  <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11">
+  <img src="https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
+  <img src="https://img.shields.io/badge/Gradio-UI-FF7C00?style=for-the-badge&logo=gradio&logoColor=white" alt="Gradio">
+  <img src="https://img.shields.io/badge/Hugging%20Face-LLM-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face">
+</p>
 
-📂 1. Data Ingestion
+<p>
+  <a href="https://github.com/IttikornMafaka/DataDoctor-LLMProject">
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub">
+  </a>
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/Project-AI%20%2F%20LLM%20Engineering-blue?style=flat-square" alt="Project Type">
+</p>
 
-Data Doctor supports common tabular data formats:
+</div>
 
-CSV
+📌 Overview
 
-Excel .xlsx
+Data Doctor is an AI-powered application for data quality analysis, validation, and controlled data cleaning.
 
-Excel .xls
+Instead of simply cleaning a dataset automatically, Data Doctor follows a safer workflow:
 
-Automatic file-type detection
+Detect the problem → Explain the problem → Recommend an action → Validate the action → Apply the cleaning
 
-Dataset loading
+Users can upload CSV or Excel files, inspect the dataset, detect common data-quality issues, receive LLM-powered explanations, apply supported cleaning operations, correct data types, and review the cleaned result.
 
-Dataset preview
+The project is designed as a practical AI / LLM Engineering portfolio project, combining data processing, rule-based validation, LLM integration, and an interactive web UI.
 
-📊 2. Dataset Analysis
+✨ What Can Data Doctor Do?
 
-Data Doctor analyzes uploaded datasets and generates a structured dataset-quality report.
+Feature
 
-The analysis includes:
+Description
+
+📂 Data Ingestion
+
+Load CSV, XLSX, and XLS files
+
+🔍 Dataset Analysis
+
+Analyze shape, types, missing values, duplicates, statistics, and distributions
+
+🏥 Data Health Check
+
+Identify common data-quality problems
+
+🧠 LLM Analysis
+
+Explain dataset problems using an LLM
+
+🛡️ Rule-Based Validation
+
+Validate values using explicit data-quality rules
+
+🔄 Type Detection
+
+Detect columns that may have incorrect data types
+
+🛠️ Type Correction
+
+Convert numeric, integer, boolean, datetime, and string columns
+
+🧹 Missing Value Cleaning
+
+Mean, median, mode, or drop rows
+
+♻️ Duplicate Removal
+
+Detect and remove duplicate records
+
+🤖 LLM Cleaning Advisor
+
+Suggest supported cleaning strategies
+
+🔐 Controlled Pipeline
+
+Validate AI recommendations before executing them
+
+📋 Cleaning Logs
+
+Record important changes made during processing
+
+🌐 Gradio UI
+
+Interactive browser-based interface
+
+🧠 Core Concept
+
+Data Doctor separates AI recommendation from data modification.
+
+                         DATA DOCTOR
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │   Upload Dataset │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Dataset Analysis │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Detect Problems  │
+                    └────────┬─────────┘
+                             │
+                ┌────────────┴────────────┐
+                ▼                         ▼
+       ┌─────────────────┐       ┌─────────────────┐
+       │ Rule-Based      │       │ LLM Analysis    │
+       │ Validation      │       │ & Recommendation│
+       └────────┬────────┘       └────────┬────────┘
+                │                         │
+                └────────────┬────────────┘
+                             ▼
+                    ┌──────────────────┐
+                    │ Validate Plan    │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Cleaning Pipeline│
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Review Result    │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Download Dataset │
+                    └──────────────────┘
+
+Why this design?
+
+The LLM does not directly modify the dataset.
+
+Instead:
+
+LLM
+ │
+ │ recommendation
+ ▼
+Validation
+ │
+ │ approved strategy
+ ▼
+Cleaning Pipeline
+ │
+ ▼
+Pandas DataFrame
+
+This makes the system more predictable and easier to audit.
+
+🔍 Data Quality Analysis
+
+Data Doctor generates a structured report before asking the LLM for an explanation.
+
+The report can contain:
+
+Dataset-level information
 
 Number of rows
 
 Number of columns
 
-Column names
+Duplicate count
 
-Data types
-
-Missing values
+Missing-value count
 
 Missing-value percentage
 
-Duplicate rows
-
-Numerical statistics
-
-Unique values
-
-Value distributions
-
-Potential outliers
-
 Column-level information
 
-🏥 3. Dataset Health Analysis
+Column name
 
-Data Doctor looks for common data-quality problems such as:
+Data type
 
 Missing values
 
-Duplicate records
+Unique values
+
+Numerical statistics
+
+Value distribution
+
+Potential issues
+
+Missing values
+
+Duplicate rows
 
 Incorrect data types
 
@@ -72,78 +213,73 @@ Suspicious numerical values
 
 Potential outliers
 
-The system does not automatically assume that every unusual value is an error. Potential outliers are treated as observations that should be reviewed.
+⚠️ A potential outlier is treated as an observation, not automatically as an error.
 
-🔎 4. Data Validation
+🛡️ Rule-Based Validation
 
-Data Doctor includes rule-based validation for identifying values that may not make sense for a specific type of column.
+Data Doctor uses explicit rules to detect values that may not be reasonable for certain types of columns.
 
-Examples include:
+Example: Age
 
 Age
+├── Must be an integer
+├── Minimum: 0
+└── Maximum: 120
 
-Age should be:
-- An integer
-- Greater than or equal to 0
-- Less than or equal to 120
+Example: Percentage
 
 Percentage
+├── Minimum: 0
+└── Maximum: 100
 
-Percentage should be between 0 and 100.
+Example: Quality Score
 
-Quality Score
+Quality
+└── Must be an integer
 
-Quality score should be an integer.
+This creates a clear separation between:
 
-The validation system separates:
+Type Detection
+      +
+Invalid Value Detection
+      +
+Value Sanity Rules
 
-Type detection
+🔄 Automatic Type Detection
 
-Invalid-value detection
-
-Value sanity rules
-
-This helps avoid treating every unusual value as a data error.
-
-🔄 5. Data Type Detection
-
-Data Doctor can detect columns that may have an incorrect data type.
+Data Doctor can identify columns that appear to have an incorrect type.
 
 For example:
 
-"20"
+age
+----------------
+"21"
 "35"
 "42"
 "18"
 
-may currently be stored as:
+The values may be stored as:
 
-object / string
+object
 
-but the system can detect that the values are likely numeric.
+but Data Doctor can detect:
 
-Supported type suggestions include:
-
-text → numeric
-text → integer
-text → boolean
-text → datetime
-values → string
-
-The system calculates a confidence value based on the proportion of values that can be successfully interpreted as the target type.
-
-Example:
-
-Column: age
-Current Type: object
 Suggested Type: integer
 Confidence: 100%
 
-🛠️ 6. Data Type Correction
+Supported suggestions
 
-After detecting potential type problems, Data Doctor can apply controlled type conversions.
+text ──────────► numeric
+text ──────────► integer
+text ──────────► boolean
+text ──────────► datetime
+values ────────► string
 
-Supported conversions include:
+Confidence is based on how many non-null values can be successfully interpreted as the suggested type.
+
+🛠️ Type Correction
+
+After reviewing a detected issue, Data Doctor can apply controlled type conversion.
 
 Numeric
 
@@ -151,15 +287,15 @@ pd.to_numeric(..., errors="coerce")
 
 Integer
 
-Values are converted into Pandas nullable integer format:
+Uses Pandas nullable integer:
 
 Int64
 
-This allows missing values to remain representable.
+This allows missing values to remain represented.
 
 Boolean
 
-Supported values include:
+Supports values such as:
 
 true
 false
@@ -168,105 +304,39 @@ no
 
 Datetime
 
-Datetime values are converted using Pandas datetime parsing.
-
-Mixed datetime formats can be handled using:
-
-format="mixed"
+Datetime values are converted using Pandas datetime parsing, including mixed-format values.
 
 String
 
-Columns can be explicitly converted into Pandas string type.
+Columns can be explicitly converted to Pandas string type.
 
-🧹 7. Missing Value Cleaning
+🧹 Missing Value Cleaning
 
-Data Doctor provides several strategies for handling missing values.
+Data Doctor currently supports four controlled strategies:
 
 Strategy
 
-Description
+Use
 
 mean
 
-Fill missing numerical values using the mean
+Fill numerical missing values with the mean
 
 median
 
-Fill missing numerical values using the median
+Fill numerical missing values with the median
 
 mode
 
-Fill missing values using the most frequent value
+Fill missing values with the most frequent value
 
 drop_rows
 
 Remove rows containing missing values
 
-The cleaning system validates the requested strategy before applying it.
+The cleaning advisor is restricted to these supported strategies.
 
-Unsupported strategies are rejected instead of being executed automatically.
-
-🧹 8. Duplicate Removal
-
-Data Doctor can detect duplicate records and remove duplicate rows during the cleaning process.
-
-Example:
-
-Before:
-100 rows
-10 duplicate rows
-
-After:
-90 rows
-
-The operation is performed on the cleaned copy of the dataset.
-
-🤖 9. LLM-Powered Data Analysis
-
-Data Doctor integrates an LLM to provide natural-language explanations of dataset-quality problems.
-
-The LLM receives a structured dataset analysis report rather than blindly receiving the entire raw dataset.
-
-The AI can provide:
-
-Dataset quality overview
-
-Important detected problems
-
-Explanations of why problems matter
-
-Suggested cleaning actions
-
-Discussion of potential outliers
-
-Practical recommendations
-
-The LLM is instructed to use only information available in the provided report. If information is not available, it should state that the information is not present rather than inventing an answer.
-
-🧠 10. LLM Data Quality Advisor
-
-The LLM can explain detected problems in a way that is easier for non-technical users to understand.
-
-Example:
-
-Problem:
-The age column contains missing values.
-
-Explanation:
-Some records do not contain an age value. This may affect
-analysis that depends on age.
-
-Recommendation:
-Consider using the median value if the distribution is skewed,
-or review the records before removing them.
-
-The LLM provides recommendations, while cleaning operations remain controlled by the application's cleaning pipeline.
-
-🧹 11. LLM-Assisted Cleaning Advisor
-
-The project includes an LLM-assisted cleaning advisor that can suggest supported cleaning strategies.
-
-Example:
+Example recommendation:
 
 {
   "age": "median",
@@ -274,148 +344,148 @@ Example:
   "category": "mode"
 }
 
-Only allowed strategies are accepted:
+The recommendation is validated before execution.
 
-mean
-median
-mode
-drop_rows
+♻️ Duplicate Cleaning
 
-This prevents the LLM from directly executing arbitrary operations on the dataset.
-
-🔐 12. Controlled Cleaning Pipeline
-
-The cleaning system separates recommendation from execution.
-
-Dataset
-   ↓
-Analysis
-   ↓
-Detect Problems
-   ↓
-LLM Recommendation
-   ↓
-Validate Cleaning Plan
-   ↓
-Cleaning Pipeline
-   ↓
-Cleaned Dataset
-
-The LLM does not directly modify the DataFrame.
-
-Instead:
-
-LLM
- ↓
-Recommendation
- ↓
-Validation
- ↓
-Cleaning Pipeline
- ↓
-Pandas
-
-📋 13. Cleaning Logs
-
-The cleaning system can record operations performed on the dataset.
-
-For type correction, logs can contain:
-
-Column
-Old Type
-New Type
+Duplicate rows can be detected and removed through the cleaning pipeline.
 
 Example:
 
-age
-object → Int64
+Before
+──────
+100 rows
+ 10 duplicate rows
 
-price
-object → float64
+After
+─────
+ 90 rows
 
-created_at
-object → datetime64[ns]
+The original DataFrame is kept unchanged while cleaning is performed on a copy.
 
-This helps users understand what changed during the cleaning process.
+🤖 LLM-Powered Analysis
 
-🧪 14. Before / After Dataset Processing
+Data Doctor integrates an LLM through the Hugging Face Inference API.
 
-Data Doctor processes cleaning operations using a copy of the original DataFrame.
+The project is designed to work with:
 
-Original Dataset
+Qwen/Qwen3-8B
+
+The LLM receives a structured analysis report and provides natural-language explanations.
+
+The LLM can help answer:
+
+What problems were detected?
+
+Which issues should be reviewed?
+
+Why might an issue matter?
+
+What cleaning approach could be considered?
+
+Which observations may require manual review?
+
+Anti-hallucination principle
+
+The LLM is instructed to:
+
+Use only information contained in the report.
+Do not invent missing information.
+If the report does not contain the information,
+say that it is not available.
+
+🔐 Controlled AI Cleaning
+
+One of the main design principles is:
+
+AI recommends. The application validates and executes.
+
+┌──────────────┐
+│     LLM      │
+└──────┬───────┘
        │
-       ├───────────────┐
-       │               │
-       ↓               ↓
-Keep Original       Clean Copy
-                       │
-                       ↓
-                 Cleaning Pipeline
-                       │
-                       ↓
-                Cleaned Dataset
+       │ JSON recommendation
+       ▼
+┌──────────────┐
+│   Validator  │
+└──────┬───────┘
+       │
+       │ approved strategy
+       ▼
+┌──────────────┐
+│   Cleaner    │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│    Pandas    │
+└──────────────┘
 
-The original uploaded dataset is not directly modified during cleaning.
+This prevents the LLM from directly executing arbitrary Python or Pandas operations.
 
-🌐 15. Gradio Web Interface
+📋 Cleaning Logs
 
-The application uses Gradio to provide an interactive web interface.
+Important cleaning operations can be recorded for transparency.
 
-The interface allows users to:
+Example:
 
-Upload a dataset
+Column      Old Type        New Type
+────────────────────────────────────────
+age         object          Int64
+price       object          float64
+created_at  object          datetime64[ns]
 
-Preview the dataset
+This provides a simple audit trail of type corrections.
 
-Analyze data quality
+🌐 User Interface
 
-View detected issues
+Data Doctor uses Gradio for the interactive web application.
 
-Request LLM analysis
+The intended user flow is:
 
-Review cleaning recommendations
+┌───────────────┐
+│ Upload File   │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Preview Data  │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Analyze       │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Review Issues │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ AI Advice     │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Clean Data    │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Review Result │
+└───────┬───────┘
+        ▼
+┌───────────────┐
+│ Export        │
+└───────────────┘
 
-Apply supported cleaning operations
-
-Review the cleaned dataset
-
-Download the cleaned file
-
-🔄 Application Workflow
-
-Upload CSV / Excel
-        ↓
-Load Dataset
-        ↓
-Dataset Preview
-        ↓
-Analyze Dataset
-        ↓
-Generate Data Quality Report
-        ↓
-Detect Data Issues
-        ↓
-LLM Analysis & Recommendations
-        ↓
-Create Cleaning Plan
-        ↓
-Apply Cleaning Operations
-        ↓
-Review Cleaning Results
-        ↓
-Download Cleaned Dataset
-
-🏗️ Project Architecture
+🏗️ Project Structure
 
 DataDoctor-LLMProject/
 │
-├── ai/
+├── 📁 ai/
 │   ├── __init__.py
 │   ├── analyzer.py
 │   ├── client.py
 │   └── test_llm.py
 │
-├── cleaning/
+├── 📁 cleaning/
 │   ├── __init__.py
 │   ├── cleaner.py
 │   ├── clean_advisor.py
@@ -423,132 +493,98 @@ DataDoctor-LLMProject/
 │   ├── type_correcter.py
 │   └── ...
 │
-├── ingestion/
+├── 📁 ingestion/
 │   ├── __init__.py
 │   └── loader.py
 │
-├── ui/
+├── 📁 ui/
 │   └── app.py
 │
-├── data/
+├── 📁 data/
 │   └── ...
 │
-├── .gitignore
-├── .gitattributes
-├── .python-version
-├── README.md
-├── pyproject.toml
-└── uv.lock
+├── 📄 .gitignore
+├── 📄 .gitattributes
+├── 📄 .python-version
+├── 📄 README.md
+├── 📄 pyproject.toml
+└── 📄 uv.lock
 
-🧩 Main Components
+🧩 Architecture
+
+Layer
+
+Responsibility
 
 ingestion/
 
-Responsible for loading user datasets.
-
-File
- ↓
-Loader
- ↓
-Pandas DataFrame
+Load and prepare datasets
 
 ai/
 
-Responsible for LLM interaction and AI-powered dataset analysis.
-
-Main responsibilities:
-
-LLM client
-
-Dataset analysis prompt
-
-LLM response generation
-
-AI analysis
+LLM communication and analysis
 
 cleaning/
 
-Responsible for data cleaning and preprocessing.
-
-Main responsibilities:
-
-Missing-value handling
-
-Duplicate removal
-
-Cleaning strategy validation
-
-Cleaning pipeline
-
-Data type detection
-
-Data type correction
+Validation, type correction, and cleaning
 
 ui/
 
-Contains the Gradio application.
+Gradio interface
 
-Main responsibilities:
+data/
 
-User interface
+Test/sample datasets
 
-File upload
+🛠️ Tech Stack
 
-Dataset preview
-
-Analysis results
-
-Cleaning controls
-
-LLM interaction
-
-Download functionality
-
-🛠️ Technology Stack
+<div align="center">
 
 Technology
 
-Purpose
+Role
 
-Python 3.11
+🐍 Python 3.11
 
-Main programming language
+Application development
 
-Pandas
+🐼 Pandas
 
-Data processing and analysis
+Data processing
 
-Gradio
+🎨 Gradio
 
-Web interface
+Web UI
 
-Hugging Face Inference API
+🤗 Hugging Face
 
 LLM inference
 
-Qwen/Qwen3-8B
+🧠 Qwen/Qwen3-8B
 
 Language model
 
-LangChain
+🔗 LangChain
 
 LLM application components
 
-OpenPyXL
+📊 OpenPyXL
 
 Excel processing
 
-uv
+⚡ uv
 
-Dependency management
+Python environment & dependencies
 
-Git
+🔧 Git
 
 Version control
 
-GitHub
+🌐 GitHub
 
-Source code hosting
+Repository hosting
+
+</div>
 
 ⚙️ Installation
 
@@ -559,8 +595,6 @@ cd DataDoctor-LLMProject
 
 2. Install dependencies
 
-This project uses uv.
-
 uv sync
 
 3. Configure Hugging Face
@@ -569,36 +603,17 @@ Create a .env file in the project root:
 
 HF_TOKEN=your_huggingface_token
 
-Replace your_huggingface_token with your Hugging Face API token.
+🔒 Never commit .env or expose your API token publicly.
 
-Never commit .env or expose your API token publicly.
-
-▶️ Run the Application
+▶️ Run
 
 uv run python ui/app.py
 
-Gradio will start the local web application.
-
-Open the local URL shown in the terminal.
-
-📦 Python Environment
-
-The project targets:
-
-Python >= 3.11
-
-The project uses uv for dependency and environment management.
-
-Recommended workflow:
-
-uv sync
-uv run python ui/app.py
+Then open the local Gradio URL shown in the terminal.
 
 🧪 Example Dataset
 
-Data Doctor can be tested with datasets containing common data-quality problems.
-
-Example:
+A simple dataset for testing:
 
 name,age,price,category,date
 Alice,21,100.5,A,2026-01-10
@@ -607,49 +622,47 @@ Charlie,25,,B,2026-01-12
 David,abc,300.0,B,invalid-date
 Alice,21,100.5,A,2026-01-10
 
-This dataset contains examples of:
+This dataset intentionally contains:
 
-Missing values
+❌ Missing values
 
-Duplicate records
+❌ Duplicate records
 
-Invalid numeric values
+❌ Invalid numeric values
 
-Potential type problems
+❌ Potential type problems
 
-Invalid datetime values
+❌ Invalid datetime values
 
-🔐 Data Safety Principles
+🔒 Data Safety Principles
 
-Data Doctor follows several design principles.
+01 — Preserve the original
 
-1. Do not blindly modify source data
+Cleaning is performed on a copy of the DataFrame.
 
-Cleaning operations are performed on a copy of the DataFrame.
+02 — Restrict AI actions
 
-2. Controlled cleaning strategies
+The LLM can only recommend supported cleaning strategies.
 
-Only supported cleaning strategies are accepted.
+03 — Validate before execution
 
-3. LLM recommendations are validated
+AI-generated cleaning plans are validated before being passed to the cleaning pipeline.
 
-The LLM does not directly execute arbitrary Python or Pandas operations.
+04 — Do not assume outliers are errors
 
-4. Outliers are observations
+Potential outliers are observations that may require review.
 
-An outlier is not automatically treated as an error.
+05 — Avoid hallucination
 
-5. Do not invent information
+The LLM should only use information available in the supplied analysis report.
 
-The LLM should only use information provided in the analysis report.
+06 — Keep humans in the loop
 
-6. Review before important data modification
+Important data modifications should be reviewed before being used in real workflows.
 
-AI-generated recommendations should be reviewed before applying them to important datasets.
+📈 Project Status
 
-📈 Current Project Status
-
-Implemented
+✅ Implemented
 
 CSV ingestion
 
@@ -697,9 +710,9 @@ Gradio interface
 
 Git/GitHub project management
 
-🚀 Future Improvements
+🚧 Planned
 
-Better data quality scoring
+Better dataset health scoring
 
 Interactive before/after comparison
 
@@ -719,7 +732,7 @@ Downloadable quality reports
 
 More file formats
 
-Automated testing
+Automated tests
 
 Unit test coverage
 
@@ -727,48 +740,93 @@ Production deployment
 
 Performance optimization for large datasets
 
-🎯 Project Goal
+🎯 Why I Built This
 
-The goal of Data Doctor is to build a practical AI-powered data-quality application rather than a simple notebook experiment.
+Data cleaning is often one of the first steps in a real machine-learning or analytics workflow, but messy data can make downstream analysis unreliable.
 
-The project combines:
+I built Data Doctor to explore how LLMs can assist with data-quality workflows without giving the model unrestricted control over the data.
 
-Data Engineering
-      +
-Data Quality
-      +
+The project focuses on combining:
+
+          Data Engineering
+                 │
+                 ▼
+           Data Quality
+                 │
+                 ▼
+        Rule-Based Validation
+                 │
+                 ▼
+          LLM Engineering
+                 │
+                 ▼
+           Data Cleaning
+                 │
+                 ▼
+           Interactive UI
+
+The goal is to build a practical application that demonstrates both software engineering and AI/LLM engineering skills.
+
+🚀 Roadmap
+
+Phase 1
+───────
+Dataset Ingestion
+       ↓
+Dataset Analysis
+       ↓
+Issue Detection
+
+Phase 2
+───────
 Rule-Based Validation
-      +
-LLM Engineering
-      +
-Data Cleaning
-      +
-Interactive UI
+       ↓
+Type Detection
+       ↓
+Cleaning Pipeline
 
-into a single practical application.
+Phase 3
+───────
+LLM Analysis
+       ↓
+LLM Cleaning Advisor
+       ↓
+Controlled AI Workflow
 
-The final goal is to provide users with an assistant that can help them:
-
-Understand their data
-        ↓
-Find potential problems
-        ↓
-Understand why they matter
-        ↓
-Receive cleaning recommendations
-        ↓
-Apply controlled cleaning
-        ↓
-Review the results
-        ↓
-Export the cleaned dataset
+Phase 4
+───────
+Before / After Comparison
+       ↓
+Cleaning History
+       ↓
+Audit Logs
+       ↓
+Production Deployment
 
 👨‍💻 Author
+
+<div align="center">
 
 Ittikorn Supsomboon (William)
 
 Artificial Intelligence Engineering Student
 
-GitHub:
+<a href="https://github.com/IttikornMafaka">
+  <img src="https://img.shields.io/badge/GitHub-IttikornMafaka-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+</a>
 
-https://github.com/IttikornMafaka
+</div>
+
+📄 License
+
+This project is currently developed as a personal AI / LLM Engineering portfolio and learning project.
+
+<div align="center">
+
+🩺 Data Doctor
+
+Make your data healthier before it reaches your model.
+
+⭐ If you find the project interesting, feel free to explore the repository.
+
+</div>
